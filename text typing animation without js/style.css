@@ -1,5 +1,6 @@
 html,body{
     display: grid;
+    grid-template-columns: 1;
     height: 100%;
     place-items: center;
     background-color: #1b1b1b;
@@ -20,14 +21,61 @@ html,body{
     border-right: 5px solid;
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 2.5s steps(19),
+    animation: typing 4.5s steps(19) infinite alternate,
             cursor .4s step-end infinite alternate;
 }
 @keyframes cursor {
     50% { border-color: transparent;}
 }
 @keyframes typing {
-    from{
+    0% {
         width: 0;
     }
+    100% {
+        width: 100%;
+    }
+}
+
+.stroke-ani-container{
+    position: relative;
+    width: 100vw;
+}
+.stroke-ani-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.overlay{
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(rgba(26, 88, 42, 0.2), rgba(0, 0, 0, 0.9));
+
+}
+/* .overlayText{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+color: white;
+align-items: center;
+} */
+ 
+.overlayText {
+    position: absolute; /* Makes the text overlap */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the text in both directions */
+    margin: 0;
+    padding: 0;
+}
+.overlayText svg {
+    display: block; 
+    fill: transparent;
 }
